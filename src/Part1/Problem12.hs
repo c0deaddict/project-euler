@@ -1,7 +1,7 @@
-module Problem12 where
+module Part1.Problem12 where
 
-import           Data.List (find, group, permutations, subsequences)
-import           Problem3  (altPrimeSieve, squareRoot, trialDivision)
+import           Data.List      (find, group, permutations, subsequences)
+import           Part1.Problem3 (altPrimeSieve, squareRoot, trialDivision)
 
 --
 -- Problem 12: Highly divisible triangular number
