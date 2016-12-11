@@ -1,0 +1,24 @@
+module Problem15 where
+
+--
+-- Problem 15: Lattice paths
+--
+-- Starting in the top left corner of a 2×2 grid, and only being able to move to
+-- the right and down, there are exactly 6 routes to the bottom right corner.
+--
+-- https://projecteuler.net/project/images/p015.gif
+--
+-- Paths: (R=Right, D=Down)
+--
+-- R R D D
+-- R D R D
+-- R D D R
+-- D R R D
+-- D R D R
+-- D D R R
+--
+-- |R| = |D|
+--
+-- How many such routes are there through a 20×20 grid?
+--
+-- 40! / 20!20!
