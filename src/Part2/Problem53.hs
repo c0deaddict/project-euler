@@ -11,11 +11,27 @@ module Part2.Problem53 where
 --
 -- In general,
 --
--- nCr =	n! / r!(n−r)!
+-- n C r =	n! / r!(n−r)!
 --
 --   where r ≤ n, n! = n×(n−1)×...×3×2×1, and 0! = 1.
 --
--- It is not until n = 23, that a value exceeds one-million: 23C10 = 1144066.
+-- It is not until n = 23, that a value exceeds one-million: 23 C 10 = 1144066.
 --
--- How many, not necessarily distinct, values of  nCr, for 1 ≤ n ≤ 100, are
+-- How many, not necessarily distinct, values of  n C r, for 1 ≤ n ≤ 100, are
 -- greater than one-million?
+
+problem53 :: Int
+problem53 = length
+  [ (n, r)
+  | n <- [23..100]
+  , r <- [1..n-1]
+  , n `nCr` r > 10^6
+  ]
+
+fac :: Integer -> Integer
+fac 1 = 1
+fac n = n * fac (n - 1)
+
+nCr :: Integer -> Integer -> Integer
+nCr n r | r >= n = 0
+nCr n r = fac n `div` (fac r * fac (n - r))
