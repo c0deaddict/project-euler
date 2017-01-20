@@ -31,10 +31,10 @@ problem32 = sum . map head . group . sort $
   , isPandigital allDigits && length allDigits == 9
   ]
 
-digits :: Int -> [Int]
+digits :: (Show a, Integral a) => a -> [Int]
 digits = map digitToInt . show
 
-fromDigits :: [Int] -> Int
+fromDigits :: (Read a, Integral a) => [Int] -> a
 fromDigits = read . concatMap show
 
 isPandigital :: [Int] -> Bool

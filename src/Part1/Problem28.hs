@@ -1,4 +1,4 @@
-module Problem28 where
+module Part1.Problem28 where
 
 --
 -- Problem 28: Number spiral diagonals
@@ -20,14 +20,20 @@ module Problem28 where
 problem28 :: Int
 problem28 = 1 + sum [d 2, d 4, d 6, d 8] where
   n = 1001 `div` 2
-  d off = sum $ diagonal n off
+  d off = sum $ take n $ diagonalInf off
+--
+-- diagonal :: Int -> Int -> [Int]
+-- diagonal n = diagonal' n 1 1 where
+--   diagonal' n i prev acc
+--     | i <= n = let
+--         cur = prev + acc
+--         acc' = acc + 8
+--       in cur : diagonal' n (i + 1) cur acc'
+--     | otherwise = []
+--     -- | i < n = 8*(acc + i) - i*o : diagonal' n o (i + 1) (acc + i)
 
-diagonal :: Int -> Int -> [Int]
-diagonal n = diagonal' n 1 1 where
-  diagonal' n i prev acc
-    | i <= n = let
-        cur = prev + acc
-        acc' = acc + 8
-      in cur : diagonal' n (i + 1) cur acc'
-    | otherwise = []
-    -- | i < n = 8*(acc + i) - i*o : diagonal' n o (i + 1) (acc + i)
+diagonalInf :: Int -> [Int]
+diagonalInf = go 1 1 where
+  go i prev acc =
+    let cur = prev + acc
+    in cur : go (i+1) cur (acc+8)
