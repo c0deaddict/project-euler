@@ -2,7 +2,7 @@ module Lib
     ( someFunc
     ) where
 
-import           Part2.Problem58
+import           Part2.Problem60
 
 someFunc :: IO ()
-someFunc = print problem58
+someFunc = print problem60
